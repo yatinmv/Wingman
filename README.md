@@ -2,6 +2,13 @@
 
 Wingman is an adaptive dating mobile application that assists users in finding the best potential match based on their characteristics. The app uses machine learning algorithms to learn more about users through their inputs, which it then uses to recommend profiles to the user. In addition, the app uses a large language model(OpenAI GPT model) to generate icebreaker questions or jokes based on the matched partner's bio to ease conversation starters.
 
+## Architecture
+
+The architecture of the application comprises three primary layers - presentation layer, business layer, and data layer. The presentation layer deals with the user's interactions with the application. The business layer performs user modeling based on user data, manages the user data, performs topic modeling to extract topics from the user's bio, and connects with external language model APIs for personalized conversational suggestion. The data layer stores the user data. Figure 3 depicts our technology stack, and we discuss the technology stack used in each layer in more detail in the subsequent sections. We will also delve into the implementation of the external language API in the Implementation section of this report.
+![Screenshot](Architecture Diagram.png)
+
+
+
 ## Implementation
 
 ### Backend Functionality
@@ -56,7 +63,6 @@ or
 - Varshini Suresh (@sureshvarshini)
 - Arnav Bhattacharya (@KaalaAadmi)
 - Feng Wang (@WangFeng12345678)
-
 
 
 
