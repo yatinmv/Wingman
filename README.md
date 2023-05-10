@@ -5,7 +5,8 @@ Wingman is an adaptive dating mobile application that assists users in finding t
 ## Architecture
 
 The architecture of the application comprises three primary layers - presentation layer, business layer, and data layer. The presentation layer deals with the user's interactions with the application. The business layer performs user modeling based on user data, manages the user data, performs topic modeling to extract topics from the user's bio, and connects with external language model APIs for personalized conversational suggestion. The data layer stores the user data. Figure 3 depicts our technology stack, and we discuss the technology stack used in each layer in more detail in the subsequent sections. We will also delve into the implementation of the external language API in the Implementation section of this report.
-![Screenshot]('Architecture Diagram.png')
+![Architecture Diagram](./Architecture Diagram.png)
+
 
 
 
