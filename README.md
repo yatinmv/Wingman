@@ -1,6 +1,6 @@
 # Wingman
 
-Wingman is an adaptive dating app that helps users find compatible partners based on their characteristics. By learning more about the user through their inputs, the app can recommend profiles that have a higher chance of being a good match. To encourage conversations, the app generates an icebreaker question or joke from the matched partner's bio.
+Wingman is an adaptive dating mobile application that assists users in finding the best potential match based on their characteristics. The app uses machine learning algorithms to learn more about users through their inputs, which it then uses to recommend profiles to the user. In addition, the app uses a large language model(OpenAI GPT model) to generate icebreaker questions or jokes based on the matched partner's bio to ease conversation starters.
 
 ## Implementation
 
@@ -29,12 +29,34 @@ For user authentication, JWT (JSON Web Token) is used. A token is issued to user
 
 ### Content-based Profile Recommendations
 
-The backend uses K-Means clustering to find similar users based on their age, diet, drinks, and orientation. The features are encoded to numerical features using LabelEncoder and scaled using StandardScaler. The features are then clustered into three clusters using KMeans, and the cluster label for the user with the given ID is obtained using kmeans.predict(). Based on the user's orientation and sex, the code filters the DataFrame to find similar users with the same cluster label and returns a DataFrame of similar users.
+One of the key functionalities of the backend is to create a list of users to recommend to a specific user. The /get-similar-users functionality takes a Pandas DataFrame and an ID representing a user's ID and uses K-Means clustering to find similar users based on their age, diet, drinks, and orientation. The categorical features are encoded to numerical features using LabelEncoder, and the features are then scaled using StandardScaler. The features are clustered into three clusters using KMeans, and the cluster label for the user with the given ID is obtained using kmeans.predict(). Based on the user's orientation and sex, the code filters the DataFrame to find similar users with the same cluster label and returns a DataFrame of similar users.
 
 ### Icebreaker Recommendations
 
-The backend uses Latent Dirichlet Allocation (LDA) to extract dominant topics from a user's bio. These topics are then passed along to the ice breaker generator module, which creates a prompt asking for three brief icebreakers based on those topics and then sends that prompt to the OpenAI API. The GPT-3.5 Turbo model was chosen due to its reliability. The generated icebreakers are returned as a list for use in the app. If the OpenAI API is unavailable or fails to generate icebreakers, a fallback message with three default icebreakers is returned.
+For generating icebreaker conversation starters, the backend utilises two key modules, a topic modelling module and an ice breaker generator module. The topic modelling uses Latent Dirichlet Allocation (LDA) to extract the dominant topics from the user's bio. These topics are then passed along to the ice breaker generator module, which creates a prompt asking for three brief icebreakers based on those topics and then sends that prompt to OpenAI API. The app uses the GPT-3.5 Turbo model to generate icebreakers, and if it is unavailable or fails to generate icebreakers, a fallback message with three default icebreakers is returned. The generated icebreakers are then returned as a list for use in the app.
 
-## License
+## Getting Started
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Install all the required libraries using the command inside the project directory
+
+
+`pip install -r requirements.txt`
+
+To run the flask app, use either 
+
+`python app.py`
+
+or
+
+`flask run`
+
+## Contributors
+- Yatin Mohan Vaid (@yatinmv)
+- Bríd O'Donnell (@bod777)
+- Varshini Suresh (@sureshvarshini)
+- Arnav Bhattacharya (@KaalaAadmi)
+- Feng Wang (@WangFeng12345678)
+
+
+
+
